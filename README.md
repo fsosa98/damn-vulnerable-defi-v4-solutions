@@ -13,7 +13,7 @@ This repository contains my solutions to Damn Vulnerable DeFi V4 challenges.
 List of challenges:
 - [x] Unstoppable
 - [ ] Naive receiver
-- [ ] Truster
+- [x] Truster
 - [ ] Side Entrance
 - [ ] The Rewarder
 - [ ] Selfie
