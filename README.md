@@ -14,9 +14,9 @@ List of challenges:
 - [x] Unstoppable
 - [ ] Naive receiver
 - [x] Truster
-- [ ] Side Entrance
+- [x] Side Entrance
 - [ ] The Rewarder
-- [ ] Selfie
+- [x] Selfie
 - [ ] Compromised
 - [ ] Puppet
 - [ ] Puppet V2
