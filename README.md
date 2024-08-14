@@ -17,8 +17,8 @@ List of challenges:
 - [x] Side Entrance
 - [ ] The Rewarder
 - [x] Selfie
-- [ ] Compromised
-- [ ] Puppet
+- [x] Compromised
+- [x] Puppet
 - [ ] Puppet V2
 - [x] Free Rider
 - [x] Backdoor
