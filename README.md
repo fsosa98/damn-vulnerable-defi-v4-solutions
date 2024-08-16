@@ -19,7 +19,7 @@ List of challenges:
 - [x] Selfie
 - [x] Compromised
 - [x] Puppet
-- [ ] Puppet V2
+- [x] Puppet V2
 - [x] Free Rider
 - [x] Backdoor
 - [x] Climber

@@ -6,7 +6,6 @@ import {Test, console} from "forge-std/Test.sol";
 import {NaiveReceiverPool, Multicall, WETH} from "../../src/naive-receiver/NaiveReceiverPool.sol";
 import {FlashLoanReceiver} from "../../src/naive-receiver/FlashLoanReceiver.sol";
 import {BasicForwarder} from "../../src/naive-receiver/BasicForwarder.sol";
-import {AttackNaiveReceiver} from "../../src/attacker-contracts/AttackNaiveReceiver.sol";
 import {ECDSA} from "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
 
 contract NaiveReceiverChallenge is Test {
