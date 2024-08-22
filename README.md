@@ -15,7 +15,7 @@ List of challenges:
 - [x] Naive receiver
 - [x] Truster
 - [x] Side Entrance
-- [ ] The Rewarder
+- [x] The Rewarder
 - [x] Selfie
 - [x] Compromised
 - [x] Puppet
